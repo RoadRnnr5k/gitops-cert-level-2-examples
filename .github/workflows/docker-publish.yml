@@ -20,8 +20,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: https://github.com/roadrnnr5k/gitops-cert-level-2-examples
-
+  IMAGE_NAME: ${{ inputs.docker_tag }}
 
 jobs:
   build-push:
@@ -54,7 +53,7 @@ jobs:
           context: ./image-updater/source-code
           file: ./image-updater/source-code/Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository }}:${{ inputs.docker_tag }}
+          tags: ghcr.io/roadrnnr5k/gitops-cert-level-2-examples:${{ inputs.docker_tag }}
 
 
 
